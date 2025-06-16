@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Learning Hub</title>
+    <!-- Load Tailwind CSS from CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the Inter font and basic body styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e2e8f0; /* Light blue-gray background */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items to the top for better scroll behavior */
+            min-height: 100vh; /* Ensure the body takes full viewport height */
+            margin: 0;
+            padding: 32px 16px; /* Increased padding for better spacing */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+
+        /* Basic styling for toggled content */
+        .service-details.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main container for the app content -->
+    <div class="w-full max-w-4xl bg-white p-8 md:p-12 rounded-lg shadow-2xl text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+            ☁️ AWS Learning Hub ☁️
+        </h1>
+        <p class="text-lg text-gray-700 mb-10 leading-relaxed max-w-2xl mx-auto">
+            Explore the foundational services of Amazon Web Services. Click on any service to learn more!
+        </p>
+
+        <!-- Container for AWS services cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- AWS Service Card: EC2 -->
+            <div class="aws-service-card bg-blue-50 p-6 rounded-xl shadow-md transform hover:scale-105 transition-transform duration-200 cursor-pointer"
+                 data-service="ec2">
+                <h2 class="text-2xl font-bold text-blue-800 mb-3">EC2 (Elastic Compute Cloud)</h2>
+                <p class="text-blue-700 text-base">
+                    Virtual servers in the cloud. Resizable compute capacity in minutes.
+                </p>
+                <button class="toggle-details mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full shadow-lg">
+                    Learn More
+                </button>
+                <div class="service-details hidden text-left mt-4 text-sm text-blue-900 bg-blue-100 p-4 rounded-lg">
+                    <p><strong>What it is:</strong> EC2 provides configurable virtual machines (instances) that you can rent to run your applications.</p>
+                    <p class="mt-2"><strong>Use Cases:</strong> Hosting web servers, running batch processing, application hosting, and more.</p>
+                    <p class="mt-2"><strong>Key Features:</strong> Various instance types, scaling options, different purchasing models (On-Demand, Reserved, Spot).</p>
+                </div>
+            </div>
+
+            <!-- AWS Service Card: S3 -->
+            <div class="aws-service-card bg-yellow-50 p-6 rounded-xl shadow-md transform hover:scale-105 transition-transform duration-200 cursor-pointer"
+                 data-service="s3">
+                <h2 class="text-2xl font-bold text-yellow-800 mb-3">S3 (Simple Storage Service)</h2>
+                <p class="text-yellow-700 text-base">
+                    Scalable object storage for the internet. Highly durable and available.
+                </p>
+                <button class="toggle-details mt-4 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-2 px-4 rounded-full shadow-lg">
+                    Learn More
+                </button>
+                <div class="service-details hidden text-left mt-4 text-sm text-yellow-900 bg-yellow-100 p-4 rounded-lg">
+                    <p><strong>What it is:</strong> S3 is an object storage service that offers industry-leading scalability, data availability, security, and performance.</p>
+                    <p class="mt-2"><strong>Use Cases:</strong> Data lakes, backup and restore, archiving, disaster recovery, content distribution.</p>
+                    <p class="mt-2"><strong>Key Features:</strong> Buckets, objects, versioning, lifecycle policies, encryption.</p>
+                </div>
+            </div>
+
+            <!-- AWS Service Card: Lambda -->
+            <div class="aws-service-card bg-orange-50 p-6 rounded-xl shadow-md transform hover:scale-105 transition-transform duration-200 cursor-pointer"
+                 data-service="lambda">
+                <h2 class="text-2xl font-bold text-orange-800 mb-3">Lambda</h2>
+                <p class="text-orange-700 text-base">
+                    Run code without provisioning or managing servers. Serverless compute.
+                </p>
+                <button class="toggle-details mt-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded-full shadow-lg">
+                    Learn More
+                </button>
+                <div class="service-details hidden text-left mt-4 text-sm text-orange-900 bg-orange-100 p-4 rounded-lg">
+                    <p><strong>What it is:</strong> Lambda lets you run code for virtually any type of application or backend service without any administration.</p>
+                    <p class="mt-2"><strong>Use Cases:</strong> Event-driven processing, backend for mobile/web apps, data processing, chatbots.</p>
+                    <p class="mt-2"><strong>Key Features:</strong> Pay-per-use, automatic scaling, integrates with many other AWS services.</p>
+                </div>
+            </div>
+
+            <!-- AWS Service Card: VPC -->
+            <div class="aws-service-card bg-green-50 p-6 rounded-xl shadow-md transform hover:scale-105 transition-transform duration-200 cursor-pointer"
+                 data-service="vpc">
+                <h2 class="text-2xl font-bold text-green-800 mb-3">VPC (Virtual Private Cloud)</h2>
+                <p class="text-green-700 text-base">
+                    Logically isolated section of the AWS Cloud to launch resources.
+                </p>
+                <button class="toggle-details mt-4 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-full shadow-lg">
+                    Learn More
+                </button>
+                <div class="service-details hidden text-left mt-4 text-sm text-green-900 bg-green-100 p-4 rounded-lg">
+                    <p><strong>What it is:</strong> VPC enables you to provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define.</p>
+                    <p class="mt-2"><strong>Use Cases:</strong> Network isolation, hybrid cloud setups, secure environments for sensitive data.</p>
+                    <p class="mt-2"><strong>Key Features:</strong> Subnets, routing tables, network ACLs, security groups, internet gateways.</p>
+                </div>
+            </div>
+
+            <!-- AWS Service Card: RDS -->
+            <div class="aws-service-card bg-purple-50 p-6 rounded-xl shadow-md transform hover:scale-105 transition-transform duration-200 cursor-pointer"
+                 data-service="rds">
+                <h2 class="text-2xl font-bold text-purple-800 mb-3">RDS (Relational Database Service)</h2>
+                <p class="text-purple-700 text-base">
+                    Managed relational databases in the cloud. Simplifies database setup.
+                </p>
+                <button class="toggle-details mt-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-full shadow-lg">
+                    Learn More
+                </button>
+                <div class="service-details hidden text-left mt-4 text-sm text-purple-900 bg-purple-100 p-4 rounded-lg">
+                    <p><strong>What it is:</strong> RDS makes it easy to set up, operate, and scale a relational database in the cloud. It provides cost-efficient and resizable capacity while automating time-consuming administration tasks.</p>
+                    <p class="mt-2"><strong>Use Cases:</strong> Web and mobile applications, enterprise applications, any application requiring a relational database.</p>
+                    <p class="mt-2"><strong>Key Features:</strong> Supports multiple database engines (MySQL, PostgreSQL, Oracle, SQL Server, MariaDB, Aurora), automated backups, multi-AZ deployments.</p>
+                </div>
+            </div>
+
+            <!-- AWS Service Card: DynamoDB -->
+            <div class="aws-service-card bg-red-50 p-6 rounded-xl shadow-md transform hover:scale-105 transition-transform duration-200 cursor-pointer"
+                 data-service="dynamodb">
+                <h2 class="text-2xl font-bold text-red-800 mb-3">DynamoDB</h2>
+                <p class="text-red-700 text-base">
+                    Fast and flexible NoSQL database service for all applications.
+                </p>
+                <button class="toggle-details mt-4 bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-full shadow-lg">
+                    Learn More
+                </button>
+                <div class="service-details hidden text-left mt-4 text-sm text-red-900 bg-red-100 p-4 rounded-lg">
+                    <p><strong>What it is:</strong> DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale.</p>
+                    <p class="mt-2"><strong>Use Cases:</strong> Mobile, web, gaming, ad tech, IoT, and other applications that need low-latency data access.</p>
+                    <p class="mt-2"><strong>Key Features:</strong> High performance at scale, fully managed, global tables, on-demand capacity.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Get all elements with the class 'toggle-details'
+        const toggleButtons = document.querySelectorAll('.toggle-details');
+
+        // Add a click event listener to each button
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Find the parent service card element
+                const serviceCard = button.closest('.aws-service-card');
+                // Find the 'service-details' div within that card
+                const details = serviceCard.querySelector('.service-details');
+
+                // Toggle the 'hidden' class to show/hide the details
+                details.classList.toggle('hidden');
+
+                // Change button text based on visibility
+                if (details.classList.contains('hidden')) {
+                    button.textContent = 'Learn More';
+                } else {
+                    button.textContent = 'Show Less';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
